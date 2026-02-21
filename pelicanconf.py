@@ -36,9 +36,7 @@ ARTICLE_SAVE_AS = "{category}/{slug}/index.html"
 # ================================================================
 DISPLAY_CATEGORIES_ON_MENU = True
 
-EXTRA_PATH_METADATA = {
-    "favicon.png": {"path": "favicon.ico"},
-}
+EXTRA_PATH_METADATA = {"favicon.png": {"path": "favicon.ico"}}
 FAVICON = "favicon.ico"
 
 CATEGORY_ORDER = [
