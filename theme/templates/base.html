@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="{{ DEFAULT_LANG }}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{{ SITENAME }}{% endblock %}</title>
+    
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap">
+    <link rel="stylesheet" href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/style.css">
+</head>
+
+<body class="{% if request and request.path == '/' %}home{% endif %}">
+
+    <header class="top-bar">
+        <div class="header-left">
+            {% if PROFILE_IMAGE_BASE64 %}
+                <img src="{{ PROFILE_IMAGE_BASE64 }}" class="profile-img" alt="Profile">
+            {% endif %}
+            <a href="{{ SITEURL }}/" class="site-name">{{ SITENAME }}</a>
+        </div>
+        
+        <div class="header-right">
+            {% if SOCIAL %}
+                {% for name, link, svg_path in SOCIAL %}
+                    <a href="{{ link }}" target="_blank" title="{{ name }}" class="social-link">
+                        <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor">
+                            <path d="{{ svg_path }}"></path>
+                        </svg>
+                    </a>
+                {% endfor %}
+            {% endif %}
+        </div>
+    </header>
+
+    <div class="main-container">
+        
+        <aside class="sidebar">
+            <nav>
+                <ul class="nav-list">
+                    <li>
+                        <a href="{{ SITEURL }}/" class="nav-button {{ 'active' if output_file == 'index.html' }}">
+                            Home
+                        </a>
+                    </li>
+
+                    {% if CATEGORY_ORDER %}
+                        
+                        {# First: Render categories in the specified order #}
+                        {% for ordered_cat_name in CATEGORY_ORDER %}
+                            {% for cat, articles in categories if cat.name == ordered_cat_name %}
+                                <li>
+                                    <a href="{{ SITEURL }}/{{ cat.url }}" class="nav-button {{ 'active' if category and category == cat }}">
+                                        {{ cat.name }}
+                                    </a>
+                                </li>
+                            {% endfor %}
+                        {% endfor %}
+
+                        {# Second: Render any remaining categories not in the order list #}
+                        {% for cat, articles in categories if cat.name not in CATEGORY_ORDER %}
+                            <li>
+                                <a href="{{ SITEURL }}/{{ cat.url }}" class="nav-button {{ 'active' if category and category == cat }}">
+                                    {{ cat.name }}
+                                </a>
+                            </li>
+                        {% endfor %}
+
+                    {% else %}
+                        
+                        {# Fallback: Default alphabetical or provided order #}
+                        {% for cat, articles in categories %}
+                            <li>
+                                <a href="{{ SITEURL }}/{{ cat.url }}" class="nav-button {{ 'active' if category and category == cat }}">
+                                    {{ cat.name }}
+                                </a>
+                            </li>
+                        {% endfor %}
+
+                    {% endif %}
+                </ul>
+            </nav>
+        </aside>
+
+        <main class="content-body">
+            {% block content %}{% endblock %}
+        </main>
+
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,138 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <header class="category-header">
+        <h1>{{ category }}</h1>
+        
+        <div class="controls-wrapper">
+            <div class="sort-wrapper">
+                <label for="sort-select">Sort by:</label>
+                <select id="sort-select" onchange="sortEntries()">
+                    <option value="date-pub">Date Published</option>
+                    <option value="date-upd">Recently Updated</option>
+                    <option value="alpha">Alphabetical</option>
+                </select>
+            </div>
+
+            <div class="view-toggle">
+                <button id="btn-cards" onclick="setView('cards')" 
+                        class="toggle-btn icon-cards" title="Card View"></button>
+                <button id="btn-grid" onclick="setView('grid')" 
+                        class="toggle-btn icon-grid" title="Grid View"></button>
+            </div>
+        </div>
+    </header>
+
+    <div id="category-container" class="view-cards">
+        {% for article in articles %}
+            <div class="entry-item" 
+                 data-title="{{ article.title|lower }}" 
+                 data-pub="{{ article.date.isoformat() }}"
+                 data-upd="{{ article.modified.isoformat() if article.modified else article.date.isoformat() }}">
+                
+                <a href="{{ SITEURL }}/{{ article.url }}" class="card-link">
+                    {% if article.cover %}
+                        <img src="{{ SITEURL }}/{{ article.category.slug }}/{{ article.slug }}/{{ article.cover }}" 
+                             class="card-image" alt="{{ article.title }}">
+                    {% endif %}
+                    
+                    <div class="card-text">
+                        <h2>{{ article.title }}</h2>
+                        <span class="entry-date">{{ article.date|strftime("%d %B %Y") }}</span>
+                        
+                        {% if article.modified and article.modified != article.date %}
+                            <span class="update-tag" data-date="{{ article.modified.isoformat() }}">
+                                UPDATED {{ article.modified|strftime("%d %B %Y") }}
+                            </span>
+                        {% endif %}
+                        
+                        <p class="summary">{{ article.summary|striptags }}</p>
+                    </div>
+                </a>
+            </div>
+        {% endfor %}
+    </div>
+
+    <script>
+        /**
+         * Converts a date string into a relative human-readable format.
+         */
+        function timeAgo(dateParam) {
+            const date = new Date(dateParam);
+            const seconds = Math.round((new Date() - date) / 1000);
+            const days = Math.round(seconds / 86400);
+            
+            if (days < 1)   return "TODAY";
+            if (days < 7)   return `${days} DAYS AGO`;
+            if (days < 30)  return `${Math.round(days / 7)} WEEKS AGO`;
+            if (days < 365) return `${Math.round(days / 30)} MONTHS AGO`;
+            return `${Math.round(days / 365)} YEARS AGO`;
+        }
+
+        /**
+         * Switches between 'cards' (list) and 'grid' view modes.
+         */
+        function setView(view) {
+            const container = document.getElementById("category-container");
+            const btnCards = document.getElementById("btn-cards");
+            const btnGrid = document.getElementById("btn-grid");
+
+            // Reset UI state
+            btnCards.classList.remove("active");
+            btnGrid.classList.remove("active");
+            
+            // Apply new view
+            container.className = "view-" + view;
+            document.getElementById("btn-" + view).classList.add("active");
+            
+            localStorage.setItem("preferredView", view);
+        }
+
+        /**
+         * Sorts the entry-item elements based on the selected dropdown value.
+         */
+        function sortEntries() {
+            const container = document.getElementById("category-container");
+            const entries = Array.from(container.getElementsByClassName("entry-item"));
+            const sortBy = document.getElementById("sort-select").value;
+
+            entries.sort((a, b) => {
+                switch(sortBy) {
+                    case 'alpha':
+                        return a.dataset.title.localeCompare(b.dataset.title);
+                    case 'date-upd':
+                        return new Date(b.dataset.upd) - new Date(a.dataset.upd);
+                    default: // 'date-pub'
+                        return new Date(b.dataset.pub) - new Date(a.dataset.pub);
+                }
+            });
+
+            // Re-append to DOM in new order
+            entries.forEach(el => container.appendChild(el));
+            localStorage.setItem("preferredSort", sortBy);
+        }
+
+        /**
+         * App Initialization: Restores user preferences and transforms dates.
+         */
+        document.addEventListener("DOMContentLoaded", () => {
+            // Restore View Preference
+            const savedView = localStorage.getItem("preferredView") || "cards";
+            setView(savedView);
+            
+            // Restore Sort Preference
+            const savedSort = localStorage.getItem("preferredSort") || "date-pub";
+            const sortSelect = document.getElementById("sort-select");
+            sortSelect.value = savedSort;
+            sortEntries();
+            
+            // Transform Update Tags to Relative Time
+            document.querySelectorAll(".update-tag").forEach(tag => {
+                const rawDate = tag.getAttribute("data-date");
+                if (rawDate) {
+                    tag.innerText = `UPDATED ${timeAgo(rawDate)}`;
+                }
+            });
+        });
+    </script>
+{% endblock %}

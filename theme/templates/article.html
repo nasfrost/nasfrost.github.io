@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block title %}{{ article.title }} | {{ SITENAME }}{% endblock %}
+
+{% block content %}
+<article class="article-container">
+    
+    <header class="article-header">
+        <h1 class="article-title">{{ article.title }}</h1>
+        
+        <div class="article-metadata">
+            <span class="entry-date">{{ article.locale_date }}</span>
+            
+            {# Only renders visible text if the article has been modified since publication #}
+            <span class="update-tag {% if not article.modified or article.modified == article.date %}hidden-date{% endif %}">
+                UPDATED: {{ article.locale_modified if article.modified else article.locale_date }}
+            </span>
+        </div>
+    </header>
+
+    <div class="article-content">
+        {{ article.content }}
+    </div>
+
+</article>
+{% endblock %}
