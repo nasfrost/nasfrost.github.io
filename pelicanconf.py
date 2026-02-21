@@ -15,7 +15,7 @@ DEFAULT_LANG = "en"
 PATH = "content"
 THEME = "theme"
 
-# Tells Pelican to look in the root of 'content' for files
+# Tells Pelican to look in the root of "content" for files
 STATIC_PATHS = [""] 
 ARTICLE_PATHS = [""]
 
@@ -35,6 +35,11 @@ ARTICLE_SAVE_AS = "{category}/{slug}/index.html"
 # THEME / UI SETTINGS
 # ================================================================
 DISPLAY_CATEGORIES_ON_MENU = True
+
+EXTRA_PATH_METADATA = {
+    "favicon.png": {"path": "favicon.ico"},
+}
+FAVICON = "favicon.ico"
 
 CATEGORY_ORDER = [
     "Poetry",
