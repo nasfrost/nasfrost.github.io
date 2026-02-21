@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Nas Frost - Software</title><link href="/" rel="alternate"/><link href="feeds/software.atom.xml" rel="self"/><id>/</id><updated>2026-02-20T22:30:00+00:00</updated><entry><title>Alvin Says!</title><link href="software/alvin-says/" rel="alternate"/><published>2026-02-20T22:30:00+00:00</published><updated>2026-02-20T22:30:00+00:00</updated><author><name>Nas Frost</name></author><id>tag:None,2026-02-20:software/alvin-says/</id><summary type="html">&lt;p&gt;A chipmunk-themed reaction game&lt;/p&gt;</summary><content type="html">&lt;p&gt;Why should Simon have all the fun? In Alvin Says!, all three chipmunks join in, giving you simple commands that are easy to mess up. Keep them fed with nuts to increase your score — but be aware, one wrong move and it's game over!&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Nas Frost - Software</title><link href="https://nasfrost.github.io/" rel="alternate"/><link href="https://nasfrost.github.io/feeds/software.atom.xml" rel="self"/><id>https://nasfrost.github.io/</id><updated>2026-02-20T22:30:00+00:00</updated><entry><title>Alvin Says!</title><link href="https://nasfrost.github.io/software/alvin-says/" rel="alternate"/><published>2026-02-20T22:30:00+00:00</published><updated>2026-02-20T22:30:00+00:00</updated><author><name>Nas Frost</name></author><id>tag:nasfrost.github.io,2026-02-20:/software/alvin-says/</id><summary type="html">&lt;p&gt;A chipmunk-themed reaction game&lt;/p&gt;</summary><content type="html">&lt;p&gt;Why should Simon have all the fun? In Alvin Says!, all three chipmunks join in, giving you simple commands that are easy to mess up. Keep them fed with nuts to increase your score — but be aware, one wrong move and it's game over!&lt;/p&gt;
 &lt;div class="godot-game-wrapper"&gt;
     &lt;div class="godot-game-container"&gt;
         &lt;iframe 
-            src="software/alvin-says/embed/alvin-says.html" 
+            src="https://nasfrost.github.io/software/alvin-says/embed/alvin-says.html" 
             loading="lazy"
             allow="autoplay; focus-without-user-activation"
             scrolling="no"&gt;
