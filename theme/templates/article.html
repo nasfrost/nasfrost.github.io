@@ -12,9 +12,9 @@
             <span class="entry-date">{{ article.locale_date }}</span>
             
             {# Only renders visible text if the article has been modified since publication #}
-            <span class="update-tag {% if not article.modified or article.modified == article.date %}hidden-date{% endif %}">
-                UPDATED: {{ article.locale_modified if article.modified else article.locale_date }}
-            </span>
+            {% if article.modified and article.modified != article.date %}
+                <span class="update-tag">UPDATED: {{ article.locale_modified }}</span>
+            {% endif %}
         </div>
     </header>
 
