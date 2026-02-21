@@ -46,21 +46,21 @@ If you're using Android, Windows or Linux, you can also download the game to pla
             <strong>Latest Release: Alvin Says!</strong>
             <span>APK File • 27 KB</span>
         </div>
-        <a href="https://github.com/nasfrost/alvin-says/releases/download/latest/alvin-says.apk" class="download-btn">Download for Android</a>
+        <a href="https://github.com/nasfrost/alvin-says/releases/latest/download/alvin-says.apk" class="download-btn">Download for Android</a>
     </div>
     <div class="download-box">
         <div class="download-info">
             <strong>Latest Release: Alvin Says!</strong>
             <span>EXE File • 95 KB</span>
         </div>
-        <a href="https://github.com/nasfrost/alvin-says/releases/download/latest/alvin-says.exe" class="download-btn">Download for Windows</a>
+        <a href="https://github.com/nasfrost/alvin-says/releases/latest/download/alvin-says.exe" class="download-btn">Download for Windows</a>
     </div>
     <div class="download-box">
         <div class="download-info">
             <strong>Latest Release: Alvin Says!</strong>
             <span>Linux Binary • 69 KB</span>
         </div>
-        <a href="https://github.com/nasfrost/alvin-says/releases/download/latest/alvin-says.x86_64" class="download-btn">Download for Linux</a>
+        <a href="https://github.com/nasfrost/alvin-says/releases/latest/download/alvin-says.x86_64" class="download-btn">Download for Linux</a>
     </div>
     <div class="download-box">
         <div class="download-info">
