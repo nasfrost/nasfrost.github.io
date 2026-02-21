@@ -2,7 +2,5 @@
 notes.txt
 
 # --- Pelican Specific ---
-output/
-cache/
-*.pyc
-__pycache__/
+/output
+/__pycache__
