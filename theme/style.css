@@ -332,7 +332,7 @@ body {
     display: block; 
     font-size: 0.85rem; 
     color: var(--text-muted); 
-    margin-bottom: 7px; 
+    margin-bottom: 0; 
 }
 
 .update-tag { 
@@ -342,7 +342,7 @@ body {
     text-transform: uppercase; 
     letter-spacing: 0.08em; 
     font-size: 0.72rem; 
-    margin-top: -4px; 
+    margin-top: 4px; 
     margin-bottom: 12px; 
 }
 
