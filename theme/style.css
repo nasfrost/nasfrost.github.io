@@ -352,6 +352,21 @@ body {
     color: var(--text-main);
 }
 
+.quote {
+    margin: 40px auto;
+    width: fit-content;
+    font-style: italic;
+    line-height: 1.8;
+    color: var(--text-muted);
+}
+
+.quote p {
+    margin: 0;
+    text-align: center;
+    font-size: 1.1rem;
+    letter-spacing: 0.02em;
+}
+
 /* Callout Boxes */
 .callout-box {
     border-top: 1px solid var(--border-grey);
@@ -374,7 +389,7 @@ body {
 }
 
 /* ================================================================
-   7. INTERACTIVE COMPONENTS (DOWNLOADS/GAMES)
+   7. INTERACTIVE COMPONENTS (DOWNLOADS/EMBEDS)
 ================================================================ 
 */
 
@@ -427,7 +442,7 @@ body {
 
 .download-btn:hover, .source-btn:hover { transform: scale(1.05); }
 
-/* In-Stack Alignment Magic */
+/* In-Stack Alignment Overrides */
 .download-stack .download-btn,
 .download-stack .source-btn {
     flex: 0 0 auto; 
@@ -468,6 +483,24 @@ body {
     border: none;
     display: block;
 }
+
+/* Flipbook Embed */
+.flipbook-container {
+    width: 100%;
+    margin-bottom: var(--whitespace);
+    aspect-ratio: 16 / 10; 
+    min-height: 400px;
+    max-height: 85vh;
+}
+
+.flipbook-iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    border-radius: 8px;
+}
+
+/*
 
 /* ================================================================
    8. RESPONSIVE OVERRIDES
@@ -563,6 +596,12 @@ body {
     .godot-game-container {
         height: 75vh; 
         max-width: 90vw; 
+    }
+
+    /* Flipbook Embed Overrides */
+    .flipbook-container {
+        aspect-ratio: 4 / 5; 
+        min-height: 600px;
     }
 }
 

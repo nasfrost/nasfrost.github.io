@@ -1,2 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Nas Frost - Poetry</title><link href="https://nasfrost.github.io/" rel="alternate"/><link href="https://nasfrost.github.io/feeds/poetry.atom.xml" rel="self"/><id>https://nasfrost.github.io/</id><updated>2026-02-21T19:00:00+00:00</updated><entry><title>Bleak Midwinter</title><link href="https://nasfrost.github.io/poetry/bleak-midwinter/" rel="alternate"/><published>2026-02-21T19:00:00+00:00</published><updated>2026-02-21T19:00:00+00:00</updated><author><name>Nas Frost</name></author><id>tag:nasfrost.github.io,2026-02-21:/poetry/bleak-midwinter/</id><summary type="html">&lt;p&gt;A Poetry Collection&lt;/p&gt;</summary><content type="html">&lt;h2&gt;Coming Soon!&lt;/h2&gt;</content><category term="Poetry"/></entry></feed>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Nas Frost - Poetry</title><link href="https://nasfrost.github.io/" rel="alternate"/><link href="https://nasfrost.github.io/feeds/poetry.atom.xml" rel="self"/><id>https://nasfrost.github.io/</id><updated>2026-02-21T15:00:00+00:00</updated><entry><title>Bleak Midwinter</title><link href="https://nasfrost.github.io/poetry/bleak-midwinter/" rel="alternate"/><published>2026-02-21T15:00:00+00:00</published><updated>2026-02-21T15:00:00+00:00</updated><author><name>Nas Frost</name></author><id>tag:nasfrost.github.io,2026-02-21:/poetry/bleak-midwinter/</id><summary type="html">&lt;p&gt;A Poetry Collection&lt;/p&gt;</summary><content type="html">&lt;div class="flipbook-container"&gt;
+    &lt;iframe 
+        src="https://heyzine.com/flip-book/0e8ca5f859.html" 
+        allowfullscreen="allowfullscreen" 
+        allow="clipboard-write" 
+        scrolling="no" 
+        class="flipbook-iframe"&gt;
+    &lt;/iframe&gt;
+&lt;/div&gt;
+
+&lt;div class="quote"&gt;
+    &lt;p&gt;
+        “I still jolt up, at night, gasping for air,&lt;br&gt;
+        my arms and legs still numb like treading water.&lt;br&gt;
+        The sharp of winter floods my thoughts with death;&lt;br&gt;
+        horizon views are windows to what, trauma?”
+    &lt;/p&gt;
+&lt;/div&gt;
+
+&lt;h2&gt;Context&lt;/h2&gt;
+&lt;p&gt;Written between May 2025 and February 2026, Bleak Midwinter is a short collection of poems about the self. Over its 20 works, it covers themes of self-doubt, belonging, introspection, fear, and hope. Stuck in a brumal malaise, the central question explored is &lt;em&gt;can I change?&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;All my work is self-edited. If you find anything that looks like an error, please reach out to me so I can correct it; I believe amateur poetry still warrants professional effort.&lt;/p&gt;</content><category term="Poetry"/></entry></feed>
