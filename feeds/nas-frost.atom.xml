@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom"><title>Nas Frost - Nas Frost</title><link href="https://nasfrost.github.io/" rel="alternate"/><link href="https://nasfrost.github.io/feeds/nas-frost.atom.xml" rel="self"/><id>https://nasfrost.github.io/</id><updated>2026-02-21T15:00:00+00:00</updated><entry><title>Bleak Midwinter</title><link href="https://nasfrost.github.io/poetry/bleak-midwinter/" rel="alternate"/><published>2026-02-21T15:00:00+00:00</published><updated>2026-02-21T15:00:00+00:00</updated><author><name>Nas Frost</name></author><id>tag:nasfrost.github.io,2026-02-21:/poetry/bleak-midwinter/</id><summary type="html">&lt;p&gt;A Poetry Collection&lt;/p&gt;</summary><content type="html">&lt;div class="flipbook-container"&gt;
     &lt;iframe 
-        src="https://heyzine.com/flip-book/749fcaab50.html" 
+        src="https://heyzine.com/flip-book/fe41c500ec.html" 
         allowfullscreen="allowfullscreen" 
         allow="clipboard-write" 
         scrolling="no" 
@@ -20,7 +20,7 @@
 
 &lt;h2&gt;Context&lt;/h2&gt;
 &lt;p&gt;Written between May 2025 and February 2026, Bleak Midwinter is a short collection of poems about the self. Over its 20 works, it covers themes of self-doubt, belonging, introspection, fear, and hope. Stuck in a brumal malaise, the central question explored is &lt;em&gt;can I change?&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;All my work is self-edited. If you find anything that looks like an error, please reach out to me so I can correct it; I believe amateur poetry still warrants professional effort.&lt;/p&gt;</content><category term="Poetry"/></entry><entry><title>Alvin Says!</title><link href="https://nasfrost.github.io/software/alvin-says/" rel="alternate"/><published>2026-02-20T22:30:00+00:00</published><updated>2026-02-21T10:50:00+00:00</updated><author><name>Nas Frost</name></author><id>tag:nasfrost.github.io,2026-02-20:/software/alvin-says/</id><summary type="html">&lt;p&gt;A chipmunk-themed reaction game&lt;/p&gt;</summary><content type="html">&lt;p&gt;Why should Simon have all the fun? In Alvin Says!, all three chipmunks join in, giving you simple commands that are easy to mess up. Keep them fed with nuts to increase your score — but be aware, one wrong move and it's game over!&lt;/p&gt;
+&lt;p&gt;All my work is self-edited. If you find anything that looks like an error, please reach out to me so I can correct it; I believe amateur poetry still warrants professional effort.&lt;/p&gt;</content><category term="Poetry"/></entry><entry><title>Alvin Says!</title><link href="https://nasfrost.github.io/software/alvin-says/" rel="alternate"/><published>2026-02-20T22:30:00+00:00</published><updated>2026-02-20T22:30:00+00:00</updated><author><name>Nas Frost</name></author><id>tag:nasfrost.github.io,2026-02-20:/software/alvin-says/</id><summary type="html">&lt;p&gt;A chipmunk-themed reaction game&lt;/p&gt;</summary><content type="html">&lt;p&gt;Why should Simon have all the fun? In Alvin Says!, all three chipmunks join in, giving you simple commands that are easy to mess up. Keep them fed with nuts to increase your score — but be aware, one wrong move and it's game over!&lt;/p&gt;
 &lt;div class="godot-game-wrapper"&gt;
     &lt;div class="godot-game-container"&gt;
         &lt;iframe 
