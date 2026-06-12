@@ -7,10 +7,23 @@
     
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap">
     <link rel="stylesheet" href="https://nasfrost.github.io/theme/style.css">
-</head>
 
+    <!-- Theme Initialisation -->
+    <script>
+        (function() {
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme) {
+                document.documentElement.setAttribute('data-theme', savedTheme);
+            } else {
+                const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+                document.documentElement.setAttribute('data-theme', systemPrefersDark ? 'dark' : 'light');
+            }
+        })();
+    </script>
+</head>
 <body class="">
 
+    <!-- Top Header -->
     <header class="top-bar">
         <div class="header-left">
                 <img src="data:image/png;base64,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" class="profile-img" alt="Profile">
@@ -18,26 +31,20 @@
         </div>
         
         <div class="header-right">
-                    <a href="https://x.com/nasfrost" target="_blank" title="Twitter" class="social-link">
-                        <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor">
-                            <path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"></path>
-                        </svg>
-                    </a>
-                    <a href="https://open.spotify.com/user/317kl4jrwivtr2uaugrwtbl5ga5i?si=aafc7fc7ac454301" target="_blank" title="Spotify" class="social-link">
-                        <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor">
-                            <path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-.959.24-2.82-1.74-6.419-2.13-10.619-1.14-.42.06-.84-.18-.9-.6-.06-.42.18-.84.6-.9 4.56-1.02 8.52-.54 11.639 1.44.3.24.42.659.24.959zm1.56-3.121c-.3.42-.84.6-1.26.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.02.6-1.14 4.38-1.32 9.78-.6 13.5 1.74.36.24.54.78.24 1.08zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.6.18-1.2.72-1.38 4.26-1.26 11.28-1.02 15.72 1.62.54.3.72 1.02.42 1.56-.3.48-1.02.72-1.56.48z"></path>
-                        </svg>
-                    </a>
-                    <a href="https://github.com/nasfrost" target="_blank" title="GitHub" class="social-link">
-                        <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor">
-                            <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"></path>
-                        </svg>
-                    </a>
+            <button class="theme-toggle-btn" aria-label="Toggle visual theme">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="control-icon icon-sun">
+                    <path d="M12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10z M12 1v2 M12 21v2 M4.22 4.22l1.42 1.42 M18.36 18.36l1.42 1.42 M1 12h2 M21 12h2 M4.22 19.78l1.42-1.42 M18.36 5.64l1.42-1.42"></path>
+                </svg>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="control-icon icon-moon">
+                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                </svg>
+            </button>
         </div>
     </header>
 
     <div class="main-container">
         
+        <!-- Sidebar -->
         <aside class="sidebar">
             <nav>
                 <ul class="nav-list">
@@ -47,7 +54,7 @@
                         </a>
                     </li>
 
-                        
+                    <!-- Apply Category Order -->
                                 <li>
                                     <a href="https://nasfrost.github.io/poetry/" class="nav-button active">
                                         Poetry
@@ -64,7 +71,6 @@
                                     </a>
                                 </li>
 
-
                 </ul>
             </nav>
         </aside>
@@ -73,25 +79,38 @@
     <header class="category-header">
         <h1>Poetry</h1>
         
+        <!-- Sorting and View Controls -->
         <div class="controls-wrapper">
             <div class="sort-wrapper">
                 <label for="sort-select">Sort by:</label>
-                <select id="sort-select" onchange="sortEntries()">
-                    <option value="date-pub">Date Published</option>
-                    <option value="date-upd">Recently Updated</option>
-                    <option value="alpha">Alphabetical</option>
-                </select>
+                <div class="select-container">
+                    <select id="sort-select" onchange="sortEntries()">
+                        <option value="date-pub">Date Published</option>
+                        <option value="date-upd">Recently Updated</option>
+                        <option value="alpha">Alphabetical</option>
+                    </select>
+                    <svg class="select-arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M6 9l6 6 6-6"></path>
+                    </svg>
+                </div>
             </div>
 
             <div class="view-toggle">
-                <button id="btn-cards" onclick="setView('cards')" 
-                        class="toggle-btn icon-cards" title="Card View"></button>
-                <button id="btn-grid" onclick="setView('grid')" 
-                        class="toggle-btn icon-grid" title="Grid View"></button>
+                <button id="btn-cards" onclick="setView('cards')" class="toggle-btn" title="Card View">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="control-icon">
+                        <path d="M5 3h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2z M3 9h18M3 15h18"></path>
+                    </svg>
+                </button>
+                <button id="btn-grid" onclick="setView('grid')" class="toggle-btn" title="Grid View">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="control-icon">
+                        <path d="M5 3h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2z M16 3h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2h-3a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2z M16 14h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2h-3a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2z M5 14h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2z"></path>
+                    </svg>
+                </button>
             </div>
         </div>
     </header>
 
+    <!-- Category Entries Container -->
     <div id="category-container" class="view-cards">
             <div class="entry-item" 
                  data-title="bleak midwinter" 
@@ -114,9 +133,7 @@
     </div>
 
     <script>
-        /**
-         * Converts a date string into a relative human-readable format.
-         */
+        // Calculate human-readable time
         function timeAgo(dateParam) {
             const date = new Date(dateParam);
             const seconds = Math.round((new Date() - date) / 1000);
@@ -129,28 +146,22 @@
             return `${Math.round(days / 365)} YEARS AGO`;
         }
 
-        /**
-         * Switches between 'cards' (list) and 'grid' view modes.
-         */
+        // Switch UI layouts
         function setView(view) {
             const container = document.getElementById("category-container");
             const btnCards = document.getElementById("btn-cards");
             const btnGrid = document.getElementById("btn-grid");
 
-            // Reset UI state
             btnCards.classList.remove("active");
             btnGrid.classList.remove("active");
             
-            // Apply new view
             container.className = "view-" + view;
             document.getElementById("btn-" + view).classList.add("active");
             
             localStorage.setItem("preferredView", view);
         }
 
-        /**
-         * Sorts the entry-item elements based on the selected dropdown value.
-         */
+        // Reorder entries based on selected option
         function sortEntries() {
             const container = document.getElementById("category-container");
             const entries = Array.from(container.getElementsByClassName("entry-item"));
@@ -167,26 +178,20 @@
                 }
             });
 
-            // Re-append to DOM in new order
             entries.forEach(el => container.appendChild(el));
             localStorage.setItem("preferredSort", sortBy);
         }
 
-        /**
-         * App Initialization: Restores user preferences and transforms dates.
-         */
+        // Preference initialisation
         document.addEventListener("DOMContentLoaded", () => {
-            // Restore View Preference
             const savedView = localStorage.getItem("preferredView") || "cards";
             setView(savedView);
             
-            // Restore Sort Preference
             const savedSort = localStorage.getItem("preferredSort") || "date-pub";
             const sortSelect = document.getElementById("sort-select");
             sortSelect.value = savedSort;
             sortEntries();
             
-            // Transform Update Tags to Relative Time
             document.querySelectorAll(".update-tag").forEach(tag => {
                 const rawDate = tag.getAttribute("data-date");
                 if (rawDate) {
@@ -199,5 +204,15 @@
 
     </div>
 
+    <!-- Change Theme -->
+    <script>
+        document.querySelector('.theme-toggle-btn').addEventListener('click', function() {
+            const currentTheme = document.documentElement.getAttribute('data-theme') || 'dark';
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            
+            document.documentElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+        });
+    </script>
 </body>
 </html>
