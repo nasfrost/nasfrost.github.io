@@ -25,9 +25,9 @@ This essay argues that while economic conditions help set the stage for populist
     download>Download PDF</a>
 </div>
 
-## The Core Argument
+## Analysis
 
-In the full analysis, I evaluate the *"Cultural Backlash"* thesis against the *"Losers of Modernisation"* perspective, specifically looking at:
+In the full essay, I evaluate the *"Cultural Backlash"* thesis against the *"Losers of Modernisation"* perspective, specifically looking at:
 
 * Structural Conditions for Populist Mobilisation
 

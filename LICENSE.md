@@ -19,7 +19,7 @@ To view a full copy of this license, visit: [http://creativecommons.org/licenses
 ---
 
 ## 2. Website Content (Proprietary)
-All **content** hosted on this website—including but not limited to essays, poetry, images, software, and audio/visual media — is **All Rights Reserved**, unless explicitly licensed otherwise within the specific work.
+All **content** hosted on this website — including but not limited to essays, poetry, images, software, and audio/visual media — is **All Rights Reserved**, unless explicitly licensed otherwise within the specific work.
 
 This means:
 * No part of the creative content may be reproduced, distributed, or transmitted in any form or by any means without the prior written permission of the author.

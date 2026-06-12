@@ -9,16 +9,32 @@
 
     <div class="article-content">
         <p>
-            This site is a collection point for any stuff I've made that I think is of decent quality. 
-            Alongside being the new home of my amateur poetry, I'm also posting some other types of 
-            writing here — primarily around politics — as well as any coding projects that I think 
-            are worth sharing. I don't expect anyone to read it all, but it makes me feel productive 
-            to put stuff out there. And if there is anything that you find interesting, then that's a bonus.
+            This site is a collection point for any stuff I've made that I think is of decent quality.
+            Alongside being the new home of my amateur poetry, I'll likely also be posting other forms of writing here,
+            as well as any coding projects I think are worth sharing. I don't expect anyone to look at it all, but
+            it makes me feel productive to put stuff out there. And if there is anything you find interesting, that's a bonus!
         </p>
         
         <p>
-            Admittedly, there's not much here yet, but hopefully I'll stick to it and flesh this 
+            Admittedly, it's looking a little sparse right now, but hopefully I'll stick to it and flesh this 
             out over the coming months and years.
         </p>
     </div>
+    
+    <!-- Social Links -->
+    {% if SOCIAL %}
+    <section class="welcome-social-section">
+        <h2 class="social-section-label">Social Links</h2>
+        
+        <div class="welcome-social-row">
+            {% for name, link, svg_path in SOCIAL %}
+                <a href="{{ link }}" target="_blank" rel="noopener noreferrer" class="social-icon-btn" aria-label="{{ name }}">
+                    <svg viewBox="0 0 24 24" class="social-main-icon" fill="currentColor">
+                        <path d="{{ svg_path }}"></path>
+                    </svg>
+                </a>
+            {% endfor %}
+        </div>
+    </section>
+    {% endif %}
 {% endblock %}

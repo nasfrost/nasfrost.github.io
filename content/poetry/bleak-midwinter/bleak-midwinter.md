@@ -24,8 +24,4 @@ Summary: A Poetry Collection
     </p>
 </div>
 
-## Context
-
 Written between May 2025 and February 2026, Bleak Midwinter is a short collection of poems about the self. Over its 20 works, it covers themes of self-doubt, belonging, introspection, fear, and hope. Stuck in a brumal malaise, the central question explored is *can I change?*
-
-All my work is self-edited. If you find anything that looks like an error, please reach out to me so I can correct it; I believe amateur poetry still warrants professional effort.

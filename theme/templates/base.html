@@ -7,10 +7,23 @@
     
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap">
     <link rel="stylesheet" href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/style.css">
-</head>
 
+    <!-- Theme Initialisation -->
+    <script>
+        (function() {
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme) {
+                document.documentElement.setAttribute('data-theme', savedTheme);
+            } else {
+                const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+                document.documentElement.setAttribute('data-theme', systemPrefersDark ? 'dark' : 'light');
+            }
+        })();
+    </script>
+</head>
 <body class="{% if request and request.path == '/' %}home{% endif %}">
 
+    <!-- Top Header -->
     <header class="top-bar">
         <div class="header-left">
             {% if PROFILE_IMAGE_BASE64 %}
@@ -20,20 +33,20 @@
         </div>
         
         <div class="header-right">
-            {% if SOCIAL %}
-                {% for name, link, svg_path in SOCIAL %}
-                    <a href="{{ link }}" target="_blank" title="{{ name }}" class="social-link">
-                        <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor">
-                            <path d="{{ svg_path }}"></path>
-                        </svg>
-                    </a>
-                {% endfor %}
-            {% endif %}
+            <button class="theme-toggle-btn" aria-label="Toggle visual theme">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="control-icon icon-sun">
+                    <path d="{{ ICON_SUN }}"></path>
+                </svg>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="control-icon icon-moon">
+                    <path d="{{ ICON_MOON }}"></path>
+                </svg>
+            </button>
         </div>
     </header>
 
     <div class="main-container">
         
+        <!-- Sidebar -->
         <aside class="sidebar">
             <nav>
                 <ul class="nav-list">
@@ -43,9 +56,8 @@
                         </a>
                     </li>
 
+                    <!-- Apply Category Order -->
                     {% if CATEGORY_ORDER %}
-                        
-                        {# First: Render categories in the specified order #}
                         {% for ordered_cat_name in CATEGORY_ORDER %}
                             {% for cat, articles in categories if cat.name == ordered_cat_name %}
                                 <li>
@@ -56,18 +68,14 @@
                             {% endfor %}
                         {% endfor %}
 
-                        {# Second: Render any remaining categories not in the order list #}
                         {% for cat, articles in categories if cat.name not in CATEGORY_ORDER %}
                             <li>
                                 <a href="{{ SITEURL }}/{{ cat.url }}" class="nav-button {{ 'active' if category and category == cat }}">
-                                    {{ cat.name }}
+                                        {{ cat.name }}
                                 </a>
                             </li>
                         {% endfor %}
-
                     {% else %}
-                        
-                        {# Fallback: Default alphabetical or provided order #}
                         {% for cat, articles in categories %}
                             <li>
                                 <a href="{{ SITEURL }}/{{ cat.url }}" class="nav-button {{ 'active' if category and category == cat }}">
@@ -75,7 +83,6 @@
                                 </a>
                             </li>
                         {% endfor %}
-
                     {% endif %}
                 </ul>
             </nav>
@@ -87,5 +94,15 @@
 
     </div>
 
+    <!-- Change Theme -->
+    <script>
+        document.querySelector('.theme-toggle-btn').addEventListener('click', function() {
+            const currentTheme = document.documentElement.getAttribute('data-theme') || 'dark';
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            
+            document.documentElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+        });
+    </script>
 </body>
 </html>

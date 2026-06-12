@@ -4,25 +4,38 @@
     <header class="category-header">
         <h1>{{ category }}</h1>
         
+        <!-- Sorting and View Controls -->
         <div class="controls-wrapper">
             <div class="sort-wrapper">
                 <label for="sort-select">Sort by:</label>
-                <select id="sort-select" onchange="sortEntries()">
-                    <option value="date-pub">Date Published</option>
-                    <option value="date-upd">Recently Updated</option>
-                    <option value="alpha">Alphabetical</option>
-                </select>
+                <div class="select-container">
+                    <select id="sort-select" onchange="sortEntries()">
+                        <option value="date-pub">Date Published</option>
+                        <option value="date-upd">Recently Updated</option>
+                        <option value="alpha">Alphabetical</option>
+                    </select>
+                    <svg class="select-arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="{{ ICON_ARROW }}"></path>
+                    </svg>
+                </div>
             </div>
 
             <div class="view-toggle">
-                <button id="btn-cards" onclick="setView('cards')" 
-                        class="toggle-btn icon-cards" title="Card View"></button>
-                <button id="btn-grid" onclick="setView('grid')" 
-                        class="toggle-btn icon-grid" title="Grid View"></button>
+                <button id="btn-cards" onclick="setView('cards')" class="toggle-btn" title="Card View">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="control-icon">
+                        <path d="{{ ICON_CARDS }}"></path>
+                    </svg>
+                </button>
+                <button id="btn-grid" onclick="setView('grid')" class="toggle-btn" title="Grid View">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="control-icon">
+                        <path d="{{ ICON_GRID }}"></path>
+                    </svg>
+                </button>
             </div>
         </div>
     </header>
 
+    <!-- Category Entries Container -->
     <div id="category-container" class="view-cards">
         {% for article in articles %}
             <div class="entry-item" 
@@ -54,9 +67,7 @@
     </div>
 
     <script>
-        /**
-         * Converts a date string into a relative human-readable format.
-         */
+        // Calculate human-readable time
         function timeAgo(dateParam) {
             const date = new Date(dateParam);
             const seconds = Math.round((new Date() - date) / 1000);
@@ -69,28 +80,22 @@
             return `${Math.round(days / 365)} YEARS AGO`;
         }
 
-        /**
-         * Switches between 'cards' (list) and 'grid' view modes.
-         */
+        // Switch UI layouts
         function setView(view) {
             const container = document.getElementById("category-container");
             const btnCards = document.getElementById("btn-cards");
             const btnGrid = document.getElementById("btn-grid");
 
-            // Reset UI state
             btnCards.classList.remove("active");
             btnGrid.classList.remove("active");
             
-            // Apply new view
             container.className = "view-" + view;
             document.getElementById("btn-" + view).classList.add("active");
             
             localStorage.setItem("preferredView", view);
         }
 
-        /**
-         * Sorts the entry-item elements based on the selected dropdown value.
-         */
+        // Reorder entries based on selected option
         function sortEntries() {
             const container = document.getElementById("category-container");
             const entries = Array.from(container.getElementsByClassName("entry-item"));
@@ -107,26 +112,20 @@
                 }
             });
 
-            // Re-append to DOM in new order
             entries.forEach(el => container.appendChild(el));
             localStorage.setItem("preferredSort", sortBy);
         }
 
-        /**
-         * App Initialization: Restores user preferences and transforms dates.
-         */
+        // Preference initialisation
         document.addEventListener("DOMContentLoaded", () => {
-            // Restore View Preference
             const savedView = localStorage.getItem("preferredView") || "cards";
             setView(savedView);
             
-            // Restore Sort Preference
             const savedSort = localStorage.getItem("preferredSort") || "date-pub";
             const sortSelect = document.getElementById("sort-select");
             sortSelect.value = savedSort;
             sortEntries();
             
-            // Transform Update Tags to Relative Time
             document.querySelectorAll(".update-tag").forEach(tag => {
                 const rawDate = tag.getAttribute("data-date");
                 if (rawDate) {
